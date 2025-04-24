@@ -37,13 +37,17 @@
               "src/assets/css/flaticon.css",
               "src/assets/css/bootstrap-datepicker.min.css",
               "src/assets/css/style.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/css/cs-select.css",
+              "src/assets/css/superfish.css"
+              
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "src/assets/js/jquery.flexslider-min.js",
               "src/assets/js/modernizr-2.6.2.min.js",
-              "src/assets/js/custom.js"
+              "src/assets/js/custom.js",
+              "src/assets/js/superfish.js"
 
               
             ]
