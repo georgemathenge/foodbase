@@ -18,10 +18,18 @@ export class ViewComponent {
     'Discover Hidden Food Gems! 🍽️ Check out these amazing food spots near you. From cozy cafes to unique eateries,' +
     "there's something for everyone. Explore the best local dining experiences now! 😋 #HiddenGems #FoodLovers #FoodieAdventure #DiscoverDeliciousness";
   shopId: any;
+  dynamicTitle: string = '';
+  dynamicSubtitle: string = '';
+  dynamicImageUrl: string = '';
   ngOnInit(): void {
     this.getRouteId();
     // this.shareUrl = window.location.href;
     this.shareUrl = 'https://triply.co/';
+    setTimeout(() => {
+      this.dynamicTitle = 'Discover Hidden Gems';
+      this.dynamicSubtitle = 'Tucked away bites that locals crave — now at your fingertips.';
+      this.dynamicImageUrl = 'assets/images/image-1.jpg';
+    }, 1000); // simulate delay
   }
   title = 'Welcome';
   BASE_URL = 'http://localhost:4007/';
@@ -35,9 +43,9 @@ export class ViewComponent {
     private route: ActivatedRoute
   ) {}
 
-  getFoodShops(shopId:any) {
+  getFoodShops(shopId: any) {
     this.httpService
-      .get(`${this.BASE_URL + APIEndPoints.GET_FOOD_SHOP_DETAILS+shopId}`)
+      .get(`${this.BASE_URL + APIEndPoints.GET_FOOD_SHOP_DETAILS + shopId}`)
       .subscribe((res: any) => {
         this.foodShopDetails = res.data[0];
         this.getLocation();
@@ -99,6 +107,5 @@ export class ViewComponent {
     });
 
     this.getFoodShops(this.shopId);
-
   }
 }
