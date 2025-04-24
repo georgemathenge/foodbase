@@ -23,7 +23,7 @@
     },
     {
       "src": "/assets/icons/homepage.png",
-      "sizes": "744x431",
+      "sizes": "431x744",
       "type": "image/png",
       "form_factor":"narrow"
     }
