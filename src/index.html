@@ -11,7 +11,7 @@
       sizes="180x180"
       href="assets/icons/apple-touch-icon.png"
     />
-  
+
     <link
       rel="icon"
       type="image/png"
@@ -60,7 +60,7 @@
     <!-- CS Select -->
     <script src="assets/js/classie.js"></script>
     <script src="assets/js/selectFx.js"></script>
-    
+
     <script>
       window.global = window;
     </script>
@@ -69,10 +69,47 @@
     <meta name="theme-color" content="#1976d2" />
   </head>
   <body>
+    <div id="loading-screen">
+      <img
+        src="/assets/icons/web-app-manifest-192x192.png"
+        alt="Foodbase Finder Logo"
+        class="loading-icon"
+      />
+      <h2>Loading Foodbase Finder...</h2>
+    </div>
+
     <app-root></app-root>
     <!-- Javascripts -->
     <noscript
       >Please enable JavaScript to continue using this application.</noscript
     >
   </body>
+  <style>
+    /* Loader styles */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+  
+    .loading-icon {
+      width: 100px; /* you can adjust */
+      height: 100px;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+  
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
 </html>
