@@ -12,40 +12,80 @@
   <div class="container">
     <div class="row">
       <div id="availability">
-        <form action="#">
-          <div class="a-col">
-            <section>
-              <select class="cs-select cs-skin-border">
-                <option value="" disabled selected>Select Hotel</option>
-                <option value="email">Luxe Hotel</option>
-                <option value="twitter">Deluxe Hotel</option>
-                <option value="linkedin">Five Star Hotel</option>
-              </select>
-            </section>
-          </div>
-          <div class="a-col alternate">
+        <form (ngSubmit)="onSearch()" #searchForm="ngForm">
+          
+          <div class="a-col col-md-6 position-relative">
             <div class="input-field">
-              <label for="date-start">Check In</label>
-              <input type="text" class="form-control" id="date-start" />
+              <label for="locationSearch">Search for a place</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="locationSearch"
+                name="locationSearch"
+                [(ngModel)]="locationSearch"
+                placeholder="Enter city, town, or hotel name"
+                required
+                (input)="onSearchChange()"
+                (focus)="showResults = true"
+              />
+
+              <!-- Overlay Search Results -->
+              <div 
+              class="search-overlay shadow" 
+              *ngIf="showResults && filteredResults.length > 0"
+            >
+              <ul class="list-group">
+                <li 
+                  class="list-group-item list-group-item-action d-flex align-items-center" 
+                  *ngFor="let place of filteredResults"
+                  (click)="selectPlace(place)"
+                >
+                  <img 
+                    [src]="place.imageUrl" 
+                    alt="Place Image" 
+                    class="img-thumbnail me-3" 
+                    style="width: 50px; height: 50px; object-fit: cover;"
+                  />
+                  <div>
+                    <h6 class="mb-0">{{ place.name }}</h6>
+                    <small class="text-muted">
+                      <ng-container *ngFor="let star of getStarsArray(place.rating)">
+                        ⭐️
+                      </ng-container>
+                      ({{ place.reviews }} reviews)
+                    </small>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            
             </div>
           </div>
-          <div class="a-col alternate">
-            <div class="input-field">
-              <label for="date-end">Check Out</label>
-              <input type="text" class="form-control" id="date-end" />
-            </div>
-          </div>
+
+          <!-- <div class="a-col">
+            <button 
+              type="button" 
+              class="btn btn-primary" 
+              (click)="useMyLocation()"
+              style="margin-top: 28px;"
+            >
+              Use My Location
+            </button>
+          </div> -->
+
           <div class="a-col action">
-            <a href="#">
-              <span>Check</span>
-              Availability
-            </a>
+            <button type="submit" class="btn btn-success"  (click)="useMyLocation()">
+             Use My Location
+            </button>
           </div>
+
         </form>
       </div>
     </div>
   </div>
 </div>
+
+
 
 <div id="fh5co-counter-section" class="fh5co-counters">
   <div class="container">

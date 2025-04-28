@@ -64,3 +64,23 @@
     }
   }
   
+  .position-relative {
+    position: relative;
+  }
+  .search-overlay {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  .list-group-item {
+    cursor: pointer;
+  }
+  .list-group-item:hover {
+    background-color: #f1f1f1;
+  }
