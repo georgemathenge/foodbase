@@ -17,7 +17,6 @@ export class LandingPageComponent implements OnInit {
     this.getFoodShops();
   }
   title = 'Welcome';
-  BASE_URL = 'http://localhost:4007/';
   foodShops: any;
 
   constructor(private httpService: HttpService, private router: Router) {}

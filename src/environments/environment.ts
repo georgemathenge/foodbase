@@ -1,6 +1,5 @@
 export const environment = {
-  // BASE_URL: window['env']['api'],
-  BASE_URL: 'http://13.50.101.10:4007',
-  // WEB_URL: window['env']['url'],
+  BASE_URL : (window as any)["env"]["api"] ,
+  WEB_URL : (window as any)["env"]["url"],
   production: true,
 };
