@@ -4,6 +4,7 @@ import { APIEndPoints } from '../constants/ApiEndPoints';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment.development';
 
 @Component({
   selector: 'app-view',
@@ -45,7 +46,7 @@ export class ViewComponent {
 
   getFoodShops(shopId: any) {
     this.httpService
-      .get(`${this.BASE_URL + APIEndPoints.GET_FOOD_SHOP_DETAILS + shopId}`)
+      .get(`${environment.BASE_URL + APIEndPoints.GET_FOOD_SHOP_DETAILS + shopId}`)
       .subscribe((res: any) => {
         this.foodShopDetails = res.data[0];
         this.getLocation();
