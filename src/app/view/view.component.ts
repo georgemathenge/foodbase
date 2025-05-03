@@ -33,7 +33,6 @@ export class ViewComponent {
     }, 1000); // simulate delay
   }
   title = 'Welcome';
-  BASE_URL = 'http://localhost:4007/';
   foodShopDetails: any;
   mapUrl!: SafeResourceUrl;
   tags: string[] = [];

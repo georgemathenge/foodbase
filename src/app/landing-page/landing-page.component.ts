@@ -120,7 +120,7 @@ export class LandingPageComponent implements OnInit {
   getUserSearch(query: string) {
     this.isLoading = true;
     this.httpService
-      .get(`${this.BASE_URL + APIEndPoints.FIND_SHOPS}?shop_name=${query}`)
+      .get(`${environment.BASE_URL+ APIEndPoints.FIND_SHOPS}?shop_name=${query}`)
       .subscribe((res: any) => {
         this.isLoading = false;
 
@@ -135,7 +135,7 @@ export class LandingPageComponent implements OnInit {
   getPlacesNearby(latitude: number, longitude: number) {
     // Example of making a GET request to your backend
     this.httpService
-      .get(`${this.BASE_URL+APIEndPoints.NEARBY_SHOPS}?lat=${latitude}&lng=${longitude}`)
+      .get(`${environment.BASE_URL+APIEndPoints.NEARBY_SHOPS}?lat=${latitude}&lng=${longitude}`)
       .subscribe((res: any) => {
         this.showResults = true
         this.isProcessing = false
